@@ -1,0 +1,67 @@
+#root {
+  width: 100%;
+  margin: 0 auto;
+  /* padding: 2rem; */
+  /* text-align: center; */
+}
+
+.pageContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+.homepageLeft {
+  width: 100%;
+  display: grid;
+  justify-content: center;
+}
+
+.infoOverview {
+  color: #852d35;
+}
+
+.infoOverview img {
+  width: 125px;
+}
+
+.infoOverview h2 {
+  margin-bottom: 0;
+}
+
+.infoOverview h3 {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.infoOverview p {
+  margin: 0;
+}
+
+.homeGraphic {
+  display: grid;
+  justify-content: end;
+  width: 100%;
+}
+
+.homeGraphic img {
+  margin-top: -40px;
+  margin-right: -300px;
+  /* width: 100%; */
+  /* height: 100%; */
+  /* height: calc(100vh - 75.81px - 24px); */
+  height: 900px;
+}
+
+.copyright {
+  text-align: end;
+  padding-right: 10px;
+  color: #852d35;
+  margin: 0;
+}
+
+.copyright p {
+  margin: 0;
+}
