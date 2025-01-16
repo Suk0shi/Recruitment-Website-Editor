@@ -1,9 +1,12 @@
 // create posts here with a form 
-import Header from './Header'
+import Header from '../components/Header'
+import { useNavigate } from 'react-router-dom'
 import { useState } from 'react';
 
 function CreatePost() {
     const [message, setMessage] = useState();
+
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -11,7 +14,7 @@ function CreatePost() {
       const formData = new FormData(e.target);
       const payload = Object.fromEntries(formData);
       
-      fetch(`${import.meta.env.VITE_API_URL}/blog/post`, {
+      fetch(`${import.meta.env.VITE_API_URL}/jobs/post`, {
         method: 'Post', 
         headers: {
           'Authorization': `${localStorage.getItem('SavedToken')}`,
@@ -28,8 +31,12 @@ function CreatePost() {
         return response.json();
       })
       .then((response) => {
+        if (response == 'post sent' && payload.published == 'on') {
+          navigate('/Opportunities')
+        } else if (response == 'post sent' && payload.published !== 'on') {
+          navigate('/Unpublished')
+        }
         setMessage(response);
-        
       })
       .catch((err) => {
         setMessage(err.toString());
