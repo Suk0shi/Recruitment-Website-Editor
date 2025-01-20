@@ -36,7 +36,11 @@ function CreatePost() {
         } else if (response == 'post sent' && payload.published !== 'on') {
           navigate('/Unpublished')
         }
+        if (typeof response == "object") {
+          setMessage(response.errors[0].msg)
+        } else {
         setMessage(response);
+        }
       })
       .catch((err) => {
         setMessage(err.toString());
@@ -44,22 +48,33 @@ function CreatePost() {
     }
 
     return (
-      <>
+      <div className='page'>
         <Header ></Header>
         {/* if user is logged in */}
-        <form method="POST" onSubmit={handleSubmit}>
-            <label htmlFor="title"> Title </label>
-            <input type="text" name='title' placeholder='title'/> <br />
-            <label htmlFor="location"> Location </label>
-            <input type="text" name='location' placeholder='location'/> <br />
-            <label htmlFor="text"> Text </label>
-            <input type="text" name='text' placeholder='text'/> <br />
-            <label htmlFor="published"> Published </label>
-            <input type="checkbox" name='published'/> <br />
-            <button>Post</button>
-        </form>
-        <p>{message}</p>
-      </>
+        <div className="formCard">
+          <form method="POST" onSubmit={handleSubmit}>
+          <h1 className='double'>Create Post</h1>
+          <div className="formComponent">
+              <label htmlFor="title"> Title </label>
+              <input type="text" name='title' placeholder=''/> 
+          </div>
+          <div className="formComponent">
+              <label htmlFor="location"> Location </label>
+              <input type="text" name='location' placeholder=''/> 
+          </div>
+          <div className="formComponent double">
+              <label htmlFor="text"> Text </label>
+              <input type="text" name='text' placeholder=''/> 
+          </div>
+          <div>
+              <label htmlFor="published"> Published </label>
+              <input type="checkbox" name='published'/> 
+          </div>
+              <button className='double'>Post</button>
+          <p>{message}</p>
+          </form>
+        </div>
+      </div>
     )
   }
   

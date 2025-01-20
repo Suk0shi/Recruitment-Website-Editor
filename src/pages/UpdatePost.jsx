@@ -39,7 +39,11 @@ function UpdatePost({editInfo}) {
           } else if (response == 'post updated' && editInfo.published == 'false') {
             navigate('/Unpublished')
           }
+          if (typeof response == "object") {
+            setMessage(response.errors[0].msg)
+          } else {
           setMessage(response);
+          }
           
         })
         .catch((err) => {
@@ -84,23 +88,33 @@ function UpdatePost({editInfo}) {
     }
     
     return (
-      <>
+      <div className='page'>
         <Header ></Header>
         {/* if user is logged in */}
-        <form method="POST" onSubmit={handleSubmit}>
-            <label htmlFor="title"> Title </label>
-            <input type="text" name='title' placeholder='title' defaultValue={undefined===editInfo ? '' : editInfo.title}/> <br />
-            <label htmlFor="location"> Location </label>
-            <input type="text" name='location' placeholder='location' defaultValue={undefined===editInfo ? '' : editInfo.location}/> <br />
-            <label htmlFor="text"> Text </label>
-            <input type="text" name='text' placeholder='text' defaultValue={undefined===editInfo ? '' : editInfo.text}/> <br />
-            <label htmlFor="published"> Published </label>
-            <input type="checkbox" name='published'defaultChecked={editInfo?.published === "true"}/> <br />
-            <button>Update Post</button>
-        </form>
-        <button onClick={handleDelete} className='deletePost'>Delete Post</button>
-        <p className='message'>{message}</p>
-      </>
+        <div className="formCard">
+          <form method="POST" onSubmit={handleSubmit}>
+            <div className="formComponent">
+              <label htmlFor="title"> Title </label>
+              <input type="text" name='title' placeholder='title' defaultValue={undefined===editInfo ? '' : editInfo.title}/> 
+            </div>
+            <div className="formComponent">
+              <label htmlFor="location"> Location </label>
+              <input type="text" name='location' placeholder='location' defaultValue={undefined===editInfo ? '' : editInfo.location}/>
+            </div>
+            <div className="formComponent double">
+              <label htmlFor="text"> Text </label>
+              <input type="text" name='text' placeholder='text' defaultValue={undefined===editInfo ? '' : editInfo.text}/>
+            </div>
+            <div>
+              <label htmlFor="published"> Published </label>
+              <input type="checkbox" name='published'defaultChecked={editInfo?.published === "true"}/>
+            </div>
+              <button className='double'>Update Post</button>
+          <button onClick={handleDelete} className='deletePost double'>Delete Post</button>
+          <p className='message'>{message}</p>
+          </form>
+        </div>
+      </div>
     )
   }
   

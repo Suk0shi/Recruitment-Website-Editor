@@ -28,7 +28,11 @@ function SignUp() {
         return response.json();
       })
       .then((response) => {
-        setMessage(response);
+        if (typeof response == "object") {
+          setMessage(response.errors[0].msg)
+        } else {
+          setMessage(response);
+        }
       })
       .catch((err) => {
         setMessage(err.toString());
@@ -37,20 +41,28 @@ function SignUp() {
 
   
     return (
-      <>
+      <div className='page'>
         <Header ></Header>
-        <form action={`${import.meta.env.VITE_API_URL}/blog/signUp`} method="POST" onSubmit={handleSubmit}>
-            <label htmlFor="username"> Username </label>
-            <input type="text" name='username' placeholder='username' required/> <br />
-            <label htmlFor="password"> Password </label>
-            <input type="password" name='password' placeholder='password' required/> <br />
-            <label htmlFor="passwordConfirm"> Confirm Password </label>
-            <input type="password" name='passwordConfirm' placeholder='passwordConfirm' required/> <br />
-            <button>Sign Up</button>
-        </form>
-        <p>{message}</p>
-        
-      </>
+        <div className="formCard">
+          <form action={`${import.meta.env.VITE_API_URL}/blog/signUp`} method="POST" onSubmit={handleSubmit}>
+          <h1 className='double'>Create Account</h1>
+            <div className="formComponent double">
+              <label htmlFor="username"> Username </label>
+              <input type="text" name='username' placeholder='' required/> 
+            </div>
+            <div className="formComponent">
+              <label htmlFor="password"> Password </label>
+              <input type="password" name='password' placeholder='' required/> 
+            </div>
+            <div className="formComponent">
+              <label htmlFor="passwordConfirm"> Confirm Password </label>
+              <input type="password" name='passwordConfirm' placeholder='' required/> 
+            </div>
+              <button className='double'>Sign Up</button>
+            <p>{message}</p>
+          </form>
+        </div>
+      </div>
     )
   }
   

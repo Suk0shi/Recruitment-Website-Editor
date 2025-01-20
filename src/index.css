@@ -1,16 +1,22 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Myriad Pro, Inter, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #213547;
+  color: #852d35;
   background-color: #ffffff;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 0fr 1fr;
 }
 
 a {
@@ -52,15 +58,39 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 40vw;
+}
+
+.formCard {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+input , textarea{
+  background-color: white;
+  border: none;
+  border-bottom: solid 2px #852d35;
+  color: #852d35;
+  font-size: 1em;
+}
+
+input:focus, textarea:focus{
+  outline: none;
+}
+
+button {
+  background-color: #852d35;
+}
+
+.formComponent {
+  display: grid;
+}
+
+.double {
+  grid-column: 1/3;
 }

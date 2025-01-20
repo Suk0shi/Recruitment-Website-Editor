@@ -37,17 +37,24 @@ function Login() {
     }
 
     return (
-      <>
+      <div className='page'>
         <Header ></Header>
-        <form action={`${import.meta.env.VITE_API_URL}/log-in`} method="POST" onSubmit={handleSubmit}>
-            <label htmlFor="username"> Username </label>
-            <input type="text" name='username' placeholder='username'/>
-            <label htmlFor="password"> Password </label>
-            <input type="password" name='password' placeholder='password'/>
-            <button>Log In</button>
-        </form>
-        <p>{message}</p>
-      </>
+        <div className="formCard">
+          <form action={`${import.meta.env.VITE_API_URL}/log-in`} method="POST" onSubmit={handleSubmit}>
+            <h1 className='double'>Login</h1>
+            <div className="formComponent">
+              <label htmlFor="username"> Username </label>
+              <input type="text" name='username' placeholder=''/>
+            </div>
+            <div className="formComponent">
+              <label htmlFor="password"> Password </label>
+              <input type="password" name='password' placeholder=''/>
+            </div>
+            <button className='double'>Log In</button>
+            <p>{message}</p>
+          </form>
+        </div>
+      </div>
     )
   }
   
