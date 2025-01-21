@@ -54,6 +54,16 @@ function UpdatePost({editInfo}) {
       }
     }
 
+    const handleBack = (e) => {
+      e.preventDefault();
+
+      if (editInfo.published == 'false') {
+        navigate('/Unpublished')
+      } else {
+        navigate('/Opportunities')
+      } 
+    }
+
     const handleDelete = (e) => {
       e.preventDefault();
     
@@ -93,6 +103,7 @@ function UpdatePost({editInfo}) {
         {/* if user is logged in */}
         <div className="formCard">
           <form method="POST" onSubmit={handleSubmit}>
+            <button onClick={handleBack} className='double backButton'>Back</button>
             <div className="formComponent">
               <label htmlFor="title"> Title </label>
               <input type="text" name='title' placeholder='title' defaultValue={undefined===editInfo ? '' : editInfo.title}/> 
@@ -103,7 +114,7 @@ function UpdatePost({editInfo}) {
             </div>
             <div className="formComponent double">
               <label htmlFor="text"> Text </label>
-              <input type="text" name='text' placeholder='text' defaultValue={undefined===editInfo ? '' : editInfo.text}/>
+              <textarea type="text" name='text' placeholder='text' defaultValue={undefined===editInfo ? '' : editInfo.text}/>
             </div>
             <div>
               <label htmlFor="published"> Published </label>

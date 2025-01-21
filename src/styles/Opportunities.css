@@ -1,0 +1,63 @@
+.opportunitiesPage {
+    display: grid;
+    justify-content: center;
+    grid-template-rows: 0fr 1fr;
+}
+
+.opportunitiesPage h1 {
+    text-align: center;
+}
+
+.opportunitiesCards {
+    width: 50vw;
+    margin-bottom: 40px;
+}
+
+.postCardContainer {
+    display: grid;
+    gap: 20px;
+}
+
+.postCard {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    column-gap: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+}
+
+.postCard:hover {
+    cursor: pointer;
+}
+
+.postCard p {
+    margin: 0;
+}
+
+
+.postCard h3 {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.postCard .date {
+    font-weight: 300;
+}
+
+.postCard .text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    max-height: 3em;
+    line-clamp: 2;
+}
+
+.postCard a {
+    background-color: #852d35;
+    padding: 4px 8px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    z-index: 100;
+}

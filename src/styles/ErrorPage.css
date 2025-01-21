@@ -1,0 +1,18 @@
+.notFound {
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+.notFound * {
+    color: black;
+    text-align: center;
+}
+
+.notFound a {
+    background-color: black;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+}

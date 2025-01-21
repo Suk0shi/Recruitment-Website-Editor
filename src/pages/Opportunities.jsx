@@ -1,11 +1,13 @@
 import '../styles/Opportunities.css'
 import Header from '../components/Header'
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function Opportunities({setEditInfo}) {
+function Opportunities({setEditInfo, setPostInfo}) {
 
   const [jobData, setJobData] = useState()
+
+  const navigate = useNavigate();
   
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/jobs/posts`, {
@@ -14,22 +16,40 @@ function Opportunities({setEditInfo}) {
       .then((data) => { console.log(data), setJobData(data)})
   }, [ ]);
 
+  const decodeHTML = (input) => {
+    const parser = new DOMParser();
+    return parser.parseFromString(input, "text/html").documentElement.textContent;
+  };
+
+  function redirectIndividual(data) {
+    setPostInfo({
+      'title':`${decodeHTML(data.title)}`,
+      'location':`${decodeHTML(data.location)}`,
+      'date':`${data.date}`,
+      'text':`${decodeHTML(data.text)}`,
+      'published':`${data.published}`,
+    });
+    navigate('/IndividualOpportunity')
+  }
   
   function Card({data}) {
   return (<div className='postCardContainer'>
     {data.map((data, index) => (
-      <div className='postCard' key={index+`div`}>
-        <h3 key={index+`title`}> {data.title}</h3>
-        <p className='date' key={index+`date`}> {data.date}</p>
-        <p key={index+`location`}> {data.location}</p>
-        <p className='text' key={index+`text`}> {data.text}</p>
-        <Link to="/UpdatePost" onClick={() => setEditInfo({
+      <div className='postCard' key={index+`div`} onClick={() => redirectIndividual(data)}>
+        <h3 key={index+`title`}> {decodeHTML(data.title)}</h3>
+        <p key={index+`location`}> {decodeHTML(data.location)}</p>
+        <p className='date double' key={index+`date`}> {data.date}</p>
+        <p className='text double' key={index+`text`}> {decodeHTML(data.text)}</p>
+        <Link className='double' to="/UpdatePost" onClick={(e) => {
+          e.stopPropagation(),
+          setEditInfo({
             'id':`${data._id}`,
-            'title':`${data.title}`,
-            'location':`${data.location}`,
-            'text':`${data.text}`,
+            'title':`${decodeHTML(data.title)}`,
+            'location':`${decodeHTML(data.location)}`,
+            'text':`${decodeHTML(data.text)}`,
             'published':`${data.published}`,
-            })}>
+          })
+        }}>
               Edit
         </Link>
       </div>
@@ -38,12 +58,16 @@ function Opportunities({setEditInfo}) {
   }
 
   return (
-    <>
+    <div className='page'>
       <Header/>
-      <p>Opportunities Page</p>
-      {(jobData === undefined) ? <h1>Loading</h1> :
-      <Card data = {jobData.post}/>}
-    </>
+      <div className='opportunitiesPage'>
+        <h1>Staff Opportunities</h1>
+        <div className='opportunitiesCards'>
+          {(jobData === undefined) ? <h1>Loading</h1> :
+          <Card data = {jobData.post}/>}
+        </div>
+      </div>
+    </div>
   )
 }
 

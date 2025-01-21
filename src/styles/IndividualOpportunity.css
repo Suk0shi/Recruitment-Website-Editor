@@ -1,0 +1,41 @@
+.individualPostCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    /* column-gap: 10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    padding: 20px;
+}
+
+.individualPostCard p {
+    margin: 0;
+}
+
+
+.individualPostCard h3 {
+    margin: 0;
+    font-size: 3em;
+}
+
+.individualPostCard .location {
+    font-size: 1.5em;
+}
+
+.individualPostCard .date {
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.individualPostCard .text {
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.individualPostCard a {
+    background-color: #852d35;
+    padding: 4px 8px;
+    border-radius: 10px;
+    margin-top: 10px;
+    text-align: center;
+    width: 100px;
+}

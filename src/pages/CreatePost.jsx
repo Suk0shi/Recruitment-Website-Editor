@@ -64,7 +64,7 @@ function CreatePost() {
           </div>
           <div className="formComponent double">
               <label htmlFor="text"> Text </label>
-              <input type="text" name='text' placeholder=''/> 
+              <textarea type="text" name='text' placeholder=''/> 
           </div>
           <div>
               <label htmlFor="published"> Published </label>

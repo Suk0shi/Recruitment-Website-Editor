@@ -10,17 +10,19 @@ import CreatePost from "./pages/CreatePost";
 import UpdatePost from "./pages/UpdatePost";
 import Unpublished from "./pages/unpublished";
 import { useState } from 'react'
-// import ErrorPage from "./ErrorPage";
+import IndividualOpportunity from "./pages/IndividualOpportunity";
+import ErrorPage from "./pages/ErrorPage";
 
 const Router = () => {
 
   const [editInfo, setEditInfo] = useState({});
+  const [postInfo, setPostInfo] = useState({});
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <App/>,
-      // errorElement: <ErrorPage />,
+      errorElement: <ErrorPage />,
     },
     {
       path: "About",
@@ -32,7 +34,7 @@ const Router = () => {
     },
     {
       path: "Opportunities",
-      element: <Opportunities setEditInfo={setEditInfo}/>,
+      element: <Opportunities setEditInfo={setEditInfo} setPostInfo={setPostInfo}/>,
     },
     {
       path: "Services",
@@ -55,8 +57,12 @@ const Router = () => {
       element: <UpdatePost editInfo={editInfo}/>,
     },
     {
+      path: "IndividualOpportunity",
+      element: <IndividualOpportunity postInfo={postInfo}/>,
+    },
+    {
       path: "Unpublished",
-      element: <Unpublished setEditInfo={setEditInfo}/>,
+      element: <Unpublished setEditInfo={setEditInfo} setPostInfo={setPostInfo}/>,
     },
   ]);
 
