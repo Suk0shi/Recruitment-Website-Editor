@@ -39,3 +39,7 @@
     text-align: center;
     width: 100px;
 }
+
+.individualPostCard a:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.aboutPage {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 40px;
+}
+
+.aboutPageLeft {
+
+}
+
+.aboutPageRight {
+    display: grid;
+    justify-items: center;
+}
+
+.aboutPageRight img {
+    background-color: #852d35;
+    width: 300px;
+    height: 400px;
+    margin-top: 50px;
+    border-radius: 300px 300px 0px 0px;
+}

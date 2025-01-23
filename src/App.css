@@ -53,6 +53,7 @@
   /* height: 100%; */
   /* height: calc(100vh - 75.81px - 24px); */
   height: 900px;
+  opacity: 0.8;
 }
 
 .copyright {

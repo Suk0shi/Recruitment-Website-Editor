@@ -27,3 +27,24 @@
 .contactLayout .formCard form button{
     width: 100px;
 }
+
+.contactMini {
+    margin-top: 30px;
+}
+
+.contactMini .contactLayout {
+    grid-template-columns: 1fr;
+}
+
+.contactMini .contactInfo {
+    padding-left: 0;
+    grid-template-columns: 1fr 1fr;
+}
+
+.contactMini .contactInfo h1 {
+    grid-row: 1/4;
+}
+
+.contactMini .contactLayout .formCard form {
+    padding: 0px;
+}

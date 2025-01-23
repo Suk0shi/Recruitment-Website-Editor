@@ -1,7 +1,7 @@
 .opportunitiesPage {
     display: grid;
     justify-content: center;
-    grid-template-rows: 0fr 1fr;
+    grid-template-rows: 0fr 0fr;
 }
 
 .opportunitiesPage h1 {

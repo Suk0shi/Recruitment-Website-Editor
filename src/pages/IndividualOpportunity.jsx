@@ -1,9 +1,13 @@
 import '../styles/IndividualOpportunity.css'
 import Header from '../components/Header'
 import { Link, useNavigate } from "react-router-dom";
+import ContactForm from '../components/ContactForm';
+import { useState } from 'react';
 
 function IndividualOpportunity({postInfo}) {
 
+  const [showForm, setShowForm] = useState(false);
+  
   const navigate = useNavigate();
   
   const handleBack = (e) => {
@@ -27,9 +31,11 @@ function IndividualOpportunity({postInfo}) {
             <p className='date'>{postInfo.date}</p>
             <p className='text'>{postInfo.text}</p>
             <p>To apply for this job...</p>
-            <Link to="/Contact">
-                Contact Us
-            </Link>
+            <a onClick={() => setShowForm(!showForm)}>Contact Us</a>
+            {showForm ? <div className="contactMini">
+              <ContactForm/>
+            </div>
+            : null}
           </div>
         </div>
       </div>
