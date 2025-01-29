@@ -41,6 +41,7 @@ function Services() {
           <li>Facilities Managers</li>
           <li>Administrative Assistants</li>
           <li>Receptionists</li>
+          <li>Office Juniors</li>
         </ul>
       </div>
     </div>
