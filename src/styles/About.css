@@ -1,13 +1,30 @@
 .aboutCarolineContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 5fr 3fr;
   padding: 0;
 }
 
 .whatWeOfferContainer {
   display: grid;
   grid-template-columns: 3fr 5fr;
-  padding: 0;
+  margin-top: 60px;
+}
+
+.whatWeOfferCalligraphy {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10vw;
+}
+
+.whatWeOfferTextContainer {
+  display: grid;
+  justify-content: center;
+  padding-right: 10vw;
+}
+
+.whatWeOfferTextContainer p {
+  
 }
 
 .calligraphy {
@@ -18,10 +35,11 @@
   display: grid;
   justify-content: center;
   align-items: center;
+  padding: 0px 10vw;
 }
 
 .aboutPageLeft .content {
-
+  
 }
 
 .aboutPageRight {
@@ -36,59 +54,26 @@
   justify-self: end;
 }
 
-.jobCarouselContainer {
-  overflow: hidden;
-  width: 100%;
-  background: #852d35;
-  white-space: nowrap;
-  grid-column: 1/3;
-  margin: 0;
-  position: relative;
-}
-
-.jobCarousel {
-  display: flex;
-  background-color: #852d35;
-  color: white;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  width: max-content;
-  animation: scroll 30s linear infinite;
-}
-
-.jobCarousel li {
-  flex: 0 0 auto;
-  padding: 10px 20px;
-  color: white;
-  border-radius: 5px;
-}
-
-/* .jobCarousel li::before {
-  content: "- ";
-  margin-right: 5px;
-} */
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 .commercialRoles{
-  grid-column: 1/3;
+  margin: 50px 10vw;
+  font-size: 30px;
+  text-align: center;
 }
 
 .commercialRecruitmentCalligraphy {
   grid-column: 1/3;
   display: grid;
   justify-content: end;
+  padding-right: 10vw;
+  margin-top: 60px;
 }
 
-.commercialRecruitmentText{
-  grid-column: 1/3;
+.commercialRecruitmentTextContainer{
+  display: grid;
+  justify-content: center;
+  padding: 10px 10vw;
+}
+
+.commercialRecruitmentTextContainer p{
+  
 }

@@ -1,0 +1,45 @@
+.jobCarouselContainer {
+  overflow: hidden;
+  background: #852d35;
+  white-space: nowrap;
+  grid-column: 1/3;
+  margin: 0;
+  position: relative;
+}
+
+.jobCarousel {
+  display: flex;
+  background-color: #852d35;
+  color: white;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  animation: scroll 30s linear infinite;
+}
+
+.jobCarousel li {
+  flex: 0 0 auto;
+  padding: 20px 20px;
+  color: white;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+/* .jobCarousel li::before {
+  content: "- ";
+  margin-right: 5px;
+} */
+
+.jobCarousel:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--scroll-width)));
+  }
+}

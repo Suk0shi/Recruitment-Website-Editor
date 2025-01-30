@@ -53,6 +53,48 @@ function Header() {
             </Link> : undefined
           }
         </div>
+        <div className='hamburgerContainer'>
+          <label className='hamburgerMenu'>
+            <input type="checkbox"/>
+          </label>
+          <aside className='sidebar'>
+            <nav>
+              {localStorage.getItem('SavedToken') ? 
+                <Link to="/SignUp">
+                    <h2>Create Account</h2>
+                </Link> : undefined
+              }
+              {localStorage.getItem('SavedToken') ? 
+                <a href="" onClick={logout}><h2>Logout</h2></a> :
+                <Link to="/Login">
+                    <h2>Login</h2>
+                </Link>
+              }
+              <Link to="/About">
+                <h2>About Us</h2>
+              </Link>
+              <Link to="/Services">
+                <h2>Our Services</h2>
+              </Link>
+              <Link to="/Opportunities">
+                <h2>Staff Opportunities</h2>
+              </Link>
+              <Link to="/Contact">
+                <h2>Contact</h2>
+              </Link>
+              {localStorage.getItem('SavedToken') ? 
+                <Link to="/CreatePost">
+                    <h2>Create Post</h2>
+                </Link> : undefined
+              }
+              {localStorage.getItem('SavedToken') ? 
+                <Link to="/Unpublished">
+                    <h2>Unpublished Posts</h2>
+                </Link> : undefined
+              } 
+            </nav>
+          </aside>
+        </div>
       </header>
   )
 }

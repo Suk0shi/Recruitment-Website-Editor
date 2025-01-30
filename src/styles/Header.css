@@ -1,3 +1,20 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  --bar-width: 60px;
+  --bar-height: 8px;
+  --hamburger-gap: 6px;
+  --foreground: #852d35;
+  --background: white;
+  --hamburgerMargin: 8px;
+  --animationTiming: 200ms ease-in-out;
+  --hamburgerHeight: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
+}
+
 header {
     background-color: #852d35;
     display: flex;
@@ -16,4 +33,101 @@ header img {
 header .right {
     display: flex;
     gap: 50px;
+}
+
+.hamburgerContainer {
+  display: none;
+}
+
+.hamburgerMenu {
+  --x-width: calc(var(--hamburgerHeight) * 1.41421356237);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--hamburger-gap);
+  width: max-content;
+  position: absolute;
+  top: var(--hamburgerMargin);
+  right: var(--hamburgerMargin);
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* .hamburgerMenu:has(input:checked) {
+  --foreground: white;
+  --background: #852d35;
+} */
+
+.hamburgerMenu::before,
+.hamburgerMenu::after,
+.hamburgerMenu input {
+  content: "";
+  width: var(--bar-width);
+  height: var(--bar-height);
+  background-color: var(--background);
+  border-radius: 9999px;
+  transform-origin: left center;
+  transition: opacity var(--animationTiming), 
+    width var(--animationTiming),
+    rotate var(--animationTiming),
+    translate var(--animationTiming),
+    background-color var(--animationTiming);
+}
+
+.hamburgerMenu input {
+  appearance: none;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  pointer-events: none;
+}
+
+.hamburgerMenu:has(input:checked)::before {
+  rotate: 45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / -2);
+}
+
+.hamburgerMenu:has(input:checked)::after {
+  rotate: -45deg;
+  width: var(--x-width);
+  translate: 0 calc(var(--bar-height) / 2);
+}
+
+.hamburgerMenu input:checked {
+  opacity: 0;
+  width: 0;
+}
+
+.sidebar {
+  transition: translate var(--animationTiming);
+  translate: +110%;
+  padding: 0.5rem 1rem;
+  padding-top: calc(var(--hamburgerHeight) + var(--hamburgerMargin) + 1rem);
+  background-color: var(--foreground);
+  color: var(--background);
+  max-width: 15rem;
+  min-height: 100vh;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+
+.hamburgerMenu:has(input:checked) + .sidebar {
+  translate: 0%;
+}
+
+@media (max-width: 1200px) {
+  
+}
+
+@media (max-width: 600px) {
+  header .right {
+    display: none;
+  }
+
+  .hamburgerContainer {
+    display: block;
+  }
 }

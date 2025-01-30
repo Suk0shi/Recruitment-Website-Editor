@@ -1,5 +1,5 @@
 footer {
-  border-top: dashed #852d35 10px;
+  border-top: dashed #852d35 5px;
   display: grid;
   justify-content: center;
   align-items: center;
@@ -7,5 +7,5 @@ footer {
 
 footer img {
   width: 100px;
-  padding: 20px 0px;
+  padding: 40px 0px;
 }
