@@ -1,0 +1,76 @@
+.dropdownBtn {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding: 1rem;
+  background-color: #852d35;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.toggleIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  pointer-events: none;
+}
+
+.dropdownContent {
+  position: absolute;
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 0.5rem;
+  background-color: #852d35;
+  border-radius: 0.5rem;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  max-height: 60vh;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  opacity: 0;
+  transform: translateY(-5%);
+  transition: transform 150ms ease-in-out;
+  opacity: 100ms ease-in-out;
+  pointer-events: none;
+  text-align: start;
+}
+
+.dropdownContent::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.dropdown {
+  position: relative;
+  display: grid;
+  align-items: center;
+}
+
+.buttonOpen {
+  border: white 2px solid;
+}
+
+.contentOpen {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.dropdownItem {
+  padding: 0.5rem;
+  margin: 0.1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: rgb(240, 249, 255);
+}

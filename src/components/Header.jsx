@@ -1,6 +1,8 @@
 import '../styles/Header.css'
 import { Link, useNavigate } from 'react-router-dom'
 import logo_white from '../assets/logo_white.png'
+import Dropdown from './Dropdown/Dropdown';
+import DropdownItem from './Dropdown/DropdownItem';
 
 function Header() {
 
@@ -20,21 +22,34 @@ function Header() {
         </div>
         <div className="right">
           {localStorage.getItem('SavedToken') ? 
-            <Link to="/SignUp">
-                <h2>Create Account</h2>
-            </Link> : undefined
-          }
-          {localStorage.getItem('SavedToken') ? 
-            <a href="" onClick={logout}><h2>Logout</h2></a> :
-            <Link to="/Login">
+            <Dropdown buttonText="Admin" content={
+              <>
+                <DropdownItem>
+                  <Link to="/SignUp">
+                      <h2>Create Account</h2>
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/CreatePost">
+                      <h2>Create Post</h2>
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to="/Unpublished">
+                      <h2>Unpublished Posts</h2>
+                  </Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <a href="" onClick={logout}><h2>Logout</h2></a>
+                </DropdownItem>
+              </>
+            }/> 
+            : <Link to="/Login">
                 <h2>Login</h2>
-            </Link>
+              </Link>
           }
           <Link to="/About">
             <h2>About Us</h2>
-          </Link>
-          <Link to="/Services">
-            <h2>Our Services</h2>
           </Link>
           <Link to="/Opportunities">
             <h2>Staff Opportunities</h2>
@@ -42,16 +57,6 @@ function Header() {
           <Link to="/Contact">
             <h2>Contact</h2>
           </Link>
-          {localStorage.getItem('SavedToken') ? 
-            <Link to="/CreatePost">
-                <h2>Create Post</h2>
-            </Link> : undefined
-          }
-          {localStorage.getItem('SavedToken') ? 
-            <Link to="/Unpublished">
-                <h2>Unpublished Posts</h2>
-            </Link> : undefined
-          }
         </div>
         <div className='hamburgerContainer'>
           <label className='hamburgerMenu'>

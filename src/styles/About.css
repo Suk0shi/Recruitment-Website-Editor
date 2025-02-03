@@ -77,3 +77,32 @@
 .commercialRecruitmentTextContainer p{
   
 }
+
+@media (max-width: 768px) {
+  .aboutCarolineContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutPageRight {
+    justify-content: center;
+  }
+
+  .whatWeOfferCalligraphy {
+    justify-content: start;
+  }
+
+  .whatWeOfferTextContainer {
+    padding: 0 10vw;
+  }
+
+  .whatWeOfferContainer {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .commercialRecruitmentCalligraphy {
+    padding: 0;
+    margin-left: 10vw;
+    justify-self: start;
+  }
+}
